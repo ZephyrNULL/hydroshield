@@ -5,6 +5,7 @@ import '../../features/auth/login_screen.dart';
 import '../../features/auth/register_screen.dart';
 import '../../features/cleaning/cleaning_screen.dart';
 import '../../features/leak_detection/leak_detection_screen.dart';
+import '../../features/payments/renter_payments_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../features/tank_level/owner_home_screen.dart';
 import '../../features/tank_level/renter_home_screen.dart';
@@ -111,7 +112,7 @@ GoRouter createRouter() {
           StatefulShellBranch(routes: [
             GoRoute(
               path: AppRoutes.renterPayments,
-              builder: (context, state) => const _RenterPaymentsScreen(),
+              builder: (context, state) => const RenterPaymentsScreen(),
             ),
           ]),
           StatefulShellBranch(routes: [
@@ -165,60 +166,6 @@ class _RenterShell extends StatelessWidget {
           NavigationDestination(icon: Icon(Icons.receipt_long_outlined), selectedIcon: Icon(Icons.receipt_long), label: 'Charges'),
           NavigationDestination(icon: Icon(Icons.payments_outlined), selectedIcon: Icon(Icons.payments), label: 'Payments'),
           NavigationDestination(icon: Icon(Icons.person_outline), selectedIcon: Icon(Icons.person), label: 'Profile'),
-        ],
-      ),
-    );
-  }
-}
-
-class _RenterPaymentsScreen extends StatelessWidget {
-  const _RenterPaymentsScreen();
-
-  @override
-  Widget build(BuildContext context) {
-    final session = SessionStore.instance;
-    return Scaffold(
-      appBar: AppBar(title: const Text('Payments')),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('Owner Payment Details', style: Theme.of(context).textTheme.titleMedium),
-                const SizedBox(height: 8),
-                const ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.account_balance), title: Text('Bank: Hydro Bank'), subtitle: Text('Account: 1234 5678 9012\nBranch: Main City')),
-                const ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.phone_android), title: Text('Mobile/Other'), subtitle: Text('e.g. Cash / Bank transfer / Online (if integrated)')),
-              ]),
-            ),
-          ),
-          const SizedBox(height: 12),
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('Your Payment Status', style: Theme.of(context).textTheme.titleMedium),
-                const SizedBox(height: 8),
-                const ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.pending_actions, color: Colors.orange), title: Text('Current bill: Pending'), subtitle: Text('Amount payable shown in Charges tab')),
-                FilledButton.icon(onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Online payment gateway not integrated in this demo.')));
-                }, icon: const Icon(Icons.payment), label: const Text('Pay Online (demo)')),
-              ]),
-            ),
-          ),
-          const SizedBox(height: 12),
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('Previous Payment Records', style: Theme.of(context).textTheme.titleMedium),
-                const SizedBox(height: 8),
-                const ListTile(leading: Icon(Icons.check_circle, color: Colors.green), title: Text('Oct 2026 - Paid'), subtitle: Text('Rs. 1,250.00 • Bank transfer')),
-                const ListTile(leading: Icon(Icons.check_circle, color: Colors.green), title: Text('Sep 2026 - Paid'), subtitle: Text('Rs. 1,180.00 • Cash')),
-              ]),
-            ),
-          ),
         ],
       ),
     );
