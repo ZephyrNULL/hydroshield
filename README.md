@@ -4,7 +4,6 @@ HydroShield is a Flutter-based smart water management prototype for residential/
 
 [![OpenCode](https://img.shields.io/badge/OpenCode-Compatible-000000?style=flat&logo=terminal&logoColor=white)](https://opencode.ai)
 [![Docs](https://img.shields.io/badge/docs-latest-blue.svg)](./docs)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub last commit](https://img.shields.io/github/last-commit/OWNER/REPO)](https://github.com/OWNER/REPO/commits/main)
 [![GitHub issues](https://img.shields.io/github/issues/OWNER/REPO)](https://github.com/OWNER/REPO/issues)
 
