@@ -6,6 +6,7 @@ import '../../features/auth/register_screen.dart';
 import '../../features/cleaning/cleaning_screen.dart';
 import '../../features/leak_detection/leak_detection_screen.dart';
 import '../../features/payments/renter_payments_screen.dart';
+import '../../features/profile/renter_profile_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../features/tank_level/owner_home_screen.dart';
 import '../../features/tank_level/renter_home_screen.dart';
@@ -118,7 +119,7 @@ GoRouter createRouter() {
           StatefulShellBranch(routes: [
             GoRoute(
               path: AppRoutes.renterProfile,
-              builder: (context, state) => const _RenterProfileScreen(),
+              builder: (context, state) => const RenterProfileScreen(),
             ),
           ]),
         ],
@@ -172,41 +173,4 @@ class _RenterShell extends StatelessWidget {
   }
 }
 
-class _RenterProfileScreen extends StatelessWidget {
-  const _RenterProfileScreen();
 
-  @override
-  Widget build(BuildContext context) {
-    final session = SessionStore.instance;
-    return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          Card(
-            child: ListTile(
-              leading: const CircleAvatar(child: Icon(Icons.person)),
-              title: Text(session.userName.value ?? 'Tenant'),
-              subtitle: Text(session.propertyName.value ?? 'Assigned property'),
-            ),
-          ),
-          const SizedBox(height: 12),
-          Card(
-            child: Column(children: [
-              const ListTile(leading: Icon(Icons.home_work_outlined), title: Text('Property'), subtitle: Text('Linked to owner-managed property (demo)')),
-              const ListTile(leading: Icon(Icons.shield_outlined), title: Text('Role permissions'), subtitle: Text('View tank/usage/charges/payments. No hardware or pricing controls.')),
-              ListTile(
-                leading: const Icon(Icons.logout),
-                title: const Text('Logout'),
-                onTap: () {
-                  session.logout();
-                  context.go(AppRoutes.login);
-                },
-              ),
-            ]),
-          ),
-        ],
-      ),
-    );
-  }
-}
