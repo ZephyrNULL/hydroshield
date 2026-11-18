@@ -2,6 +2,12 @@
 
 HydroShield is a Flutter-based smart water management prototype for residential/rental properties. It provides role-based **Property Owner** and **Tenant** interfaces with mock IoT data/services to demonstrate tank monitoring, usage/billing, cleaning/maintenance, leakage detection, and remote supply control flows.
 
+[![OpenCode](https://img.shields.io/badge/OpenCode-Compatible-000000?style=flat&logo=terminal&logoColor=white)](https://opencode.ai)
+[![Docs](https://img.shields.io/badge/docs-latest-blue.svg)](./docs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub last commit](https://img.shields.io/github/last-commit/OWNER/REPO)](https://github.com/OWNER/REPO/commits/main)
+[![GitHub issues](https://img.shields.io/github/issues/OWNER/REPO)](https://github.com/OWNER/REPO/issues)
+
 > **Status:** Prototype/demo build. Core UI flows and role-based access are implemented with **mock data/services**. Real Firebase auth/database/messaging, ESP32/MQTT hardware communication, backend sync, and payment gateway integrations are **not fully integrated** yet.
 
 ## What’s included in this build
