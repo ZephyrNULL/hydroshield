@@ -48,6 +48,31 @@ HydroShield is a Flutter-based smart water management prototype for residential/
 - Own consumption (today/week/month) and charge summary
 - Access to Charges and Payments tabs; no access to modify pricing, thresholds, or hardware controls
 
+## Screenshots (demo)
+
+### Login
+| Sign-in |
+| --- |
+| ![Login](docs/screenshots/01-login.png) |
+
+### Owner interface
+| Home | Usage & Billing | Cleaning & Maintenance |
+| --- | --- | --- |
+| ![Owner Home](docs/screenshots/02-owner-home.png) | ![Owner Usage](docs/screenshots/03-owner-usage.png) | ![Owner Cleaning](docs/screenshots/04-owner-cleaning.png) |
+
+| Alerts (Leak & Valve) | Settings & Management |
+| --- | --- |
+| ![Owner Alerts](docs/screenshots/05-owner-alerts.png) | ![Owner Settings](docs/screenshots/06-owner-settings.png) |
+
+### Tenant interface
+| Home | Charges & Usage |
+| --- | --- |
+| ![Tenant Home](docs/screenshots/07-tenant-home.png) | ![Tenant Charges](docs/screenshots/08-tenant-charges.png) |
+
+| Payments (Demo Gateway) | Profile |
+| --- | --- |
+| ![Tenant Payments](docs/screenshots/09-tenant-payments.png) | ![Tenant Profile](docs/screenshots/10-tenant-profile.png) |
+
 ## Important limitations (vs full production spec)
 - **IoT/ESP32 integration:** Ultrasonic level, flow sensor, solenoid valve, and cleaning mechanism communication is **mocked** (service interfaces/placeholders included for future MQTT/REST integration).
 - **Backend & data:** Firebase (Auth/Firestore/Messaging), persistent history, multi-property/tenant account linking, and sync are **not fully wired** in this build.

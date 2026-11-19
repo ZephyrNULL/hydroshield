@@ -99,8 +99,8 @@ class _RenterHomeScreenState extends State<RenterHomeScreen> {
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text('Current Charges (Summary)', style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
                 const SizedBox(height: 8),
-                const ListTile(contentPadding: EdgeInsets.zero, title: Text('Applicable price per unit'), trailing: Text('Rs. 0.12 / L')),
-                const ListTile(contentPadding: EdgeInsets.zero, title: Text('This month (estimated)'), trailing: Text('Rs. 294.00')),
+                const ListTile(contentPadding: EdgeInsets.zero, title: Text('Applicable price per unit'), trailing: Text('\$0.12 / L')),
+                const ListTile(contentPadding: EdgeInsets.zero, title: Text('This month (estimated)'), trailing: Text('\$294.00')),
                 ListTile(contentPadding: EdgeInsets.zero, title: const Text('Payment status'), trailing: Chip(label: const Text('Pending'), backgroundColor: Colors.orange.withValues(alpha: 0.2))),
                 const SizedBox(height: 4),
                 Text('View owner payment details and records in the Payments tab. You cannot modify prices or hardware settings.', style: Theme.of(context).textTheme.bodySmall),

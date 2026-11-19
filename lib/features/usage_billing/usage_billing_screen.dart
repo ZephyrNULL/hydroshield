@@ -126,14 +126,14 @@ class _UsageBillingScreenState extends State<UsageBillingScreen> {
           Text(isOwner ? 'Tenant Consumption & Payment Records' : 'Historical Consumption & Payments', style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
           if (isOwner) ...const [
-            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('A')), title: Text('Tenant A - Unit 1'), subtitle: Text('2,450 L • Rs. 294.00'), trailing: Chip(label: Text('Pending'))),
-            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('B')), title: Text('Tenant B - Unit 2'), subtitle: Text('2,900 L • Rs. 348.00'), trailing: Chip(label: Text('Paid'))),
-            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('C')), title: Text('Tenant C - Unit 3'), subtitle: Text('3,100 L • Rs. 372.00'), trailing: Chip(label: Text('Paid'))),
-            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('D')), title: Text('Tenant D - Unit 4'), subtitle: Text('3,150 L • Rs. 378.00'), trailing: Chip(label: Text('Pending'))),
+            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('A')), title: Text('Tenant A - Unit 1'), subtitle: Text('2,450 L • \$294.00'), trailing: Chip(label: Text('Pending'))),
+            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('B')), title: Text('Tenant B - Unit 2'), subtitle: Text('2,900 L • \$348.00'), trailing: Chip(label: Text('Paid'))),
+            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('C')), title: Text('Tenant C - Unit 3'), subtitle: Text('3,100 L • \$372.00'), trailing: Chip(label: Text('Paid'))),
+            ListTile(contentPadding: EdgeInsets.zero, leading: CircleAvatar(child: Text('D')), title: Text('Tenant D - Unit 4'), subtitle: Text('3,150 L • \$378.00'), trailing: Chip(label: Text('Pending'))),
           ] else ...const [
-            ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.history), title: Text('Oct 2026'), subtitle: Text('2,380 L • Rs. 285.60'), trailing: Text('Paid', style: TextStyle(color: Colors.green))),
-            ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.history), title: Text('Sep 2026'), subtitle: Text('2,510 L • Rs. 301.20'), trailing: Text('Paid', style: TextStyle(color: Colors.green))),
-            ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.history), title: Text('Nov 2026 (current)'), subtitle: Text('2,450 L • Rs. 294.00'), trailing: Text('Pending', style: TextStyle(color: Colors.orange))),
+            ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.history), title: Text('Oct 2026'), subtitle: Text('2,380 L • \$285.60'), trailing: Text('Paid', style: TextStyle(color: Colors.green))),
+            ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.history), title: Text('Sep 2026'), subtitle: Text('2,510 L • \$301.20'), trailing: Text('Paid', style: TextStyle(color: Colors.green))),
+            ListTile(contentPadding: EdgeInsets.zero, leading: Icon(Icons.history), title: Text('Nov 2026 (current)'), subtitle: Text('2,450 L • \$294.00'), trailing: Text('Pending', style: TextStyle(color: Colors.orange))),
           ],
           const SizedBox(height: 4),
           Text('Daily/weekly/monthly summaries and historical usage available (mock data).', style: Theme.of(context).textTheme.bodySmall),
@@ -149,7 +149,7 @@ class _UsageBillingScreenState extends State<UsageBillingScreen> {
     final c = TextEditingController(text: _pricePerLiter.toStringAsFixed(2));
     final v = await showDialog<double>(context: context, builder: (ctx) => AlertDialog(
       title: const Text('Set price per litre'),
-      content: TextField(controller: c, keyboardType: const TextInputType.numberWithOptions(decimal: true), decoration: const InputDecoration(prefixText: 'Rs. ')),
+      content: TextField(controller: c, keyboardType: const TextInputType.numberWithOptions(decimal: true), decoration: const InputDecoration(prefixText: '\$')),
       actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Cancel')), FilledButton(onPressed: () => Navigator.pop(ctx, double.tryParse(c.text)), child: const Text('Save'))],
     ));
     if (v != null && v > 0) setState(() => _pricePerLiter = v);
